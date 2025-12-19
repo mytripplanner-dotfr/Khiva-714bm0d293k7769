@@ -1,0 +1,650 @@
+
+<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khiva, Perle de la Route de la Soie : 13 Jours d'Immersion </title>
+    <link rel="icon" type="image/png" href="favicon.png" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+      tailwind.config = {
+          theme: {
+              extend: {
+                  colors: {
+                      template: {
+                          sable: '#FFEDD5', 
+                          ocre: '#F97316',   // Orange Vibrant (Brand Accent)
+                          roche: '#0F172A',  // Bleu Nuit (Brand Dark)
+                          ciel: '#0D9488',   // Vert Lagon (Brand Primary)
+                          bg: '#FFF7ED'      // C'est un blanc cassé chaud, parfait pour la lecture et le contraste.
+                      }
+                  },
+                  fontFamily: {
+                      sans: ['"Plus Jakarta Sans"', 'sans-serif'], // Nouvelle police corps
+                      serif: ['"Outfit"', 'sans-serif'],           // Nouvelle police titres
+                  }
+              }
+          }
+      }
+    </script>
+    <style>
+        body { overflow-x: hidden; }
+        
+        /* 2. FORÇAGE DES GRAISSES (Comme sur la Landing Page) */
+        .font-sans { font-weight: 600 !important; }
+        .font-serif { font-weight: 800 !important; }
+
+        /* Ligne verticale de la timeline */
+        .timeline-line {
+            position: absolute;
+            left: 24px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background-color: #E5E7EB;
+            z-index: 0;
+        }
+
+        @media (min-width: 768px) {
+            .timeline-line { left: 50%; margin-left: -1px; }
+        }
+
+        /* Style des cartes Info */
+        .tip-card {
+            border-left: 4px solid #F97316; /* ocre */
+            background-color: #FFF7ED;
+        }
+
+        /* Masquer la scrollbar de la nav mobile tout en gardant le scroll */
+        .hide-scroll::-webkit-scrollbar { display: none; }
+        .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-template-bg text-template-roche antialiased">
+    
+    <nav id="nav-desktop" class="hidden md:flex fixed top-0 w-full z-50 bg-white/90 backdrop-blur border-b border-gray-200 py-4 px-8 justify-between items-center shadow-sm transition-transform duration-300 -translate-y-full">
+        <a href="#top" class="text-xl font-serif font-bold tracking-widest text-template-roche">MyTrip<span class="text-template-ocre">Planner</span></a>
+        <div class="space-x-6 text-sm font-bold text-gray-600">
+            <a href="#jour-1" class="nav-item-desktop hover:text-template-ocre transition">Le Parcours</a>
+            <a href="#pratique" class="nav-item-desktop hover:text-template-ocre transition">Infos Pratiques</a>
+        </div>
+    </nav>
+
+    <nav id="nav-mobile" class="md:hidden fixed top-0 w-full z-50 bg-white/95 backdrop-blur border-b border-gray-200 py-3 pl-4 overflow-x-auto hide-scroll whitespace-nowrap shadow-md transition-transform duration-300 -translate-y-full">
+        <div class="flex space-x-2 pr-4" id="mobile-menu-container">
+            <a href="#top" class="inline-block px-3 py-1 bg-template-roche text-white rounded-full text-xs font-bold shadow-sm">Top</a>
+            
+                <a href="#jour-1" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J1 Arrivée à Khiva, Premiers Pas dans l'Itchan Kala</a>
+            
+                <a href="#jour-2" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J2 Trésors de l'Itchan Kala : Minarets et Palais</a>
+            
+                <a href="#jour-3" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J3 Madrasahs, Mosquées et Mausolées Sacrés</a>
+            
+                <a href="#jour-4" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J4 Artisanat Local et Coucher de Soleil Magique</a>
+            
+                <a href="#jour-5" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J5 Voyage vers Boukhara, la Noble</a>
+            
+                <a href="#jour-6" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J6 Boukhara, Cœur Spirituel de l'Asie Centrale</a>
+            
+                <a href="#jour-7" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J7 Dômes Commerçants et Détente au Hammam</a>
+            
+                <a href="#jour-8" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J8 Samarcande, Splendeur du Régistan</a>
+            
+                <a href="#jour-9" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J9 Samarcande, Joyaux de l'Architecture Timouride</a>
+            
+                <a href="#jour-10" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J10 Nécropole Sacrée et Astronomie Ancienne</a>
+            
+                <a href="#jour-11" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J11 Artisanat et Départ pour Tachkent</a>
+            
+                <a href="#jour-12" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J12 Tachkent, Capitale Moderne et Historique</a>
+            
+                <a href="#jour-13" class="mobile-link inline-block px-3 py-1 bg-gray-100 text-gray-700 rounded-full text-xs font-bold hover:bg-template-sable transition-all duration-300">J13 Départ de Tachkent</a>
+            
+            <a href="#pratique" class="mobile-link inline-block px-3 py-1 border border-gray-300 text-gray-500 rounded-full text-xs font-bold">Infos</a>
+        </div>
+    </nav>
+
+    <header id="top" class="relative h-[60vh] flex items-center justify-center bg-cover bg-center"
+            style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)), url('https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/header.png" || 'https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?q=80&w=2021'}');">
+        
+        <div class="relative z-20 text-center text-white px-4 max-w-3xl animate-fade-in-up">
+            <p class="font-sans text-template-sable tracking-[0.2em] mb-4 uppercase text-xs font-bold">Feuille de Route</p>
+            <h1 class="font-serif text-5xl md:text-8xl mb-6 leading-tight drop-shadow-lg">KHIVA</h1>
+            <p class="font-sans text-lg md:text-xl text-gray-100 mb-10 font-medium max-w-2xl mx-auto leading-relaxed">Khiva, Perle de la Route de la Soie : 13 Jours d'Immersion</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-sm font-bold mb-10">
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🗓️ 13 jours</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">💰 2250€</span>
+                <span class="bg-white/20 backdrop-blur-md px-5 py-2 rounded-full border border-white/30 shadow-sm">🛬 10h avec escale depuis Lyon, France</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="itineraire" class="max-w-6xl mx-auto px-4 py-16 relative">
+        <div class="text-center mb-16">
+            <h2 class="text-template-ocre font-bold tracking-normal text-4xl mt-2 uppercase font-serif">Votre Roadtrip</h2>
+        </div>
+
+        <div class="relative">
+            <div class="timeline-line"></div>
+            
+                <div id="jour-1" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 1</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Arrivée à Khiva, Premiers Pas dans l'Itchan Kala</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un voyage vers l'Ouzbékistan, vous atterrissez à Urgench, porte d'entrée de Khiva. Un court transfert vous mène à votre hôtel au cœur de la ville fortifiée. Profitez de cette première journée pour vous imprégner de l'atmosphère unique de l'Itchan Kala, la vieille ville, en vous promenant tranquillement et en vous familiarisant avec ses ruelles ancestrales. Laissez-vous charmer par les silhouettes des minarets et des madrasahs qui se dessinent à l'horizon.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛬 <strong>Arrivée à Urgench et transfert à Khiva</strong>: Après votre vol, un véhicule vous attendra à l'aéroport d'Urgench pour vous conduire directement à Khiva, un trajet d'environ 30 minutes. C'est l'occasion d'apercevoir les paysages désertiques avant d'atteindre la ville fortifiée.</li><li>🛏️ <strong>Installation à l'hôtel et découverte libre de l'Itchan Kala</strong>: Installez-vous dans votre hôtel 3 étoiles, souvent un ancien caravansérail rénové, puis partez pour une balade légère. L'Itchan Kala est un musée à ciel ouvert, parfait pour une première exploration sans itinéraire précis.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour1.jpg" class="w-full h-64 object-cover" alt="Jour 1">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">ℹ️ À savoir</p>
+                                <p class="text-gray-700">L'Itchan Kala est entièrement piétonne. Prévoyez des chaussures confortables pour explorer ses pavés.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Échangez un peu de monnaie locale (Soum) à l'aéroport ou à votre hôtel pour les petites dépenses.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-2" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 2</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Trésors de l'Itchan Kala : Minarets et Palais</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Plongez au cœur de l'histoire de Khiva en explorant les monuments emblématiques de l'Itchan Kala. Admirez l'architecture unique du minaret Kalta Minor, dont les motifs turquoise et verts racontent des siècles d'artisanat. Pénétrez ensuite dans la forteresse de Kunya Ark, l'ancienne résidence des khans, pour découvrir ses cours somptueuses et ses panoramas imprenables sur la ville. Une journée riche en découvertes architecturales et historiques vous attend.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Visite du Minaret Kalta Minor</strong>: Ce minaret inachevé est l'emblème de Khiva, reconnaissable à ses carreaux de céramique émaillée. Son histoire fascinante et son design unique en font un incontournable dès le matin.</li><li>👑 <strong>Exploration de la Forteresse de Kunya Ark</strong>: Ancienne citadelle des Khans de Khiva, elle abrite des mosquées, des résidences et une prison. Montez sur ses remparts pour une vue panoramique exceptionnelle sur l'Itchan Kala.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour2.jpg" class="w-full h-64 object-cover" alt="Jour 2">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎟️ Billet d'entrée</p>
+                                <p class="text-gray-700">Un billet unique (pass) est souvent disponible pour l'ensemble des sites de l'Itchan Kala, valable plusieurs jours.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Photographie</p>
+                                <p class="text-gray-700">Le matin offre une lumière douce, idéale pour capturer la beauté des monuments sans la foule.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-3" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 3</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Madrasahs, Mosquées et Mausolées Sacrés</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Poursuivez votre exploration de Khiva en vous immergeant dans son patrimoine religieux et éducatif. Découvrez la grandeur de la mosquée Djuma avec ses centaines de colonnes en bois sculpté, puis laissez-vous émouvoir par la sérénité du mausolée de Pahlavon Mahmud, un lieu de pèlerinage important. Terminez par la madrasah Islam Khodja, dont le minaret offre une vue imprenable sur la ville, pour une journée entre spiritualité et architecture.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Découverte de la Mosquée Djuma</strong>: Unique en son genre avec ses 218 colonnes en bois sculpté, chacune différente, elle offre une atmosphère mystique et fraîche. Prenez le temps d'admirer les détails de chaque colonne.</li><li>🕊️ <strong>Visite du Mausolée de Pahlavon Mahmud</strong>: Ce complexe funéraire, avec son dôme turquoise, est le plus sacré de Khiva. Il abrite la tombe du poète et lutteur Pahlavon Mahmud, vénéré comme un saint patron.</li><li>🎓 <strong>Ascension du Minaret Islam Khodja et visite de sa Madrasah</strong>: Le plus haut minaret de Khiva offre une vue spectaculaire sur l'Itchan Kala. La madrasah adjacente est également remarquable par son architecture élancée.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour3.jpg" class="w-full h-64 object-cover" alt="Jour 3">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🙏 Respect</p>
+                                <p class="text-gray-700">Dans les lieux de culte, une tenue respectueuse (épaules et genoux couverts) est appréciée.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ Astuce</p>
+                                <p class="text-gray-700">L'ascension du minaret Islam Khodja est étroite et raide, mais la vue en vaut la peine.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-4" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 4</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Artisanat Local et Coucher de Soleil Magique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après trois jours d'exploration intense, cette journée vous invite à découvrir l'âme vivante de Khiva à travers son artisanat et ses traditions. Flânez dans les ateliers où les artisans perpétuent des savoir-faire ancestraux, du bois sculpté à la céramique. En fin de journée, trouvez le spot idéal pour admirer le coucher de soleil sur les remparts de l'Itchan Kala, un spectacle inoubliable qui teinte la ville d'or et d'ocre. Une immersion douce dans la culture locale.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🎨 <strong>Rencontre avec l'artisanat local</strong>: Visitez les ateliers de sculpture sur bois, de fabrication de tapis ou de céramique disséminés dans l'Itchan Kala. C'est une excellente occasion d'acheter des souvenirs authentiques et de soutenir les artisans locaux.</li><li>🌅 <strong>Coucher de soleil depuis les remparts de l'Itchan Kala</strong>: Montez sur les remparts près de la porte Ota Darvoza ou Palvan Darvoza pour admirer le soleil se coucher sur les dômes et minarets de Khiva. C'est un moment magique et photogénique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour4.jpg" class="w-full h-64 object-cover" alt="Jour 4">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Souvenirs</p>
+                                <p class="text-gray-700">N'hésitez pas à négocier les prix dans les bazars, c'est une pratique courante.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍽️ Gastronomie</p>
+                                <p class="text-gray-700">Goûtez le "Shivit Oshi", des nouilles vertes typiques de Khiva, souvent servies avec une sauce à l'aneth.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-5" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 5</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Voyage vers Boukhara, la Noble</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Aujourd'hui, vous quittez Khiva pour une nouvelle étape sur la Route de la Soie : Boukhara. Le trajet en train ou en voiture vous offre un aperçu des vastes paysages désertiques de l'Ouzbékistan. Une fois arrivé, installez-vous dans votre hôtel et laissez-vous charmer par l'ambiance paisible du complexe Lyab-i Hauz, le cœur vibrant de la vieille ville. Une première immersion douce dans l'atmosphère unique de Boukhara.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚆 <strong>Transfert en train ou voiture de Khiva à Boukhara</strong>: Un trajet d'environ 6-7 heures vous mènera à Boukhara. Le train est confortable et offre de belles vues sur la campagne ouzbèke. Prévoyez de l'eau et des encas.</li><li>🚶‍♂️ <strong>Promenade autour du Lyab-i Hauz</strong>: Ce complexe central, avec son bassin historique, est entouré de madrasahs et de la Khanaka Nadir Divan-Beghi. C'est l'endroit idéal pour se détendre, observer la vie locale et dîner en terrasse.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour5.jpg" class="w-full h-64 object-cover" alt="Jour 5">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Transport</p>
+                                <p class="text-gray-700">Les trains en Ouzbékistan sont généralement ponctuels et confortables. Réservez vos billets à l'avance.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🌙 Ambiance</p>
+                                <p class="text-gray-700">Le Lyab-i Hauz s'anime particulièrement le soir, avec des spectacles de musique et de danse traditionnelles.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-6" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 6</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Boukhara, Cœur Spirituel de l'Asie Centrale</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez la grandeur de Boukhara en explorant le majestueux complexe Poi Kalyan, dominé par son minaret emblématique. Poursuivez votre voyage dans le temps avec le mausolée des Samanides, un chef-d'œuvre de l'architecture islamique. Cette journée vous plongera dans l'histoire et la spiritualité de cette ville millénaire, révélant la richesse de son patrimoine architectural et culturel. Une immersion profonde dans l'âme de Boukhara.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>✨ <strong>Visite du Complexe Poi Kalyan</strong>: Ce site impressionnant comprend le minaret Kalyan (la "Tour de la Mort"), la mosquée Kalyan et la madrasah Mir-i-Arab. C'est le cœur historique et spirituel de Boukhara, à explorer en profondeur.</li><li>🏛️ <strong>Découverte du Mausolée des Samanides</strong>: Ce mausolée du Xe siècle est un exemple exceptionnel d'architecture en brique cuite, avec des motifs complexes qui changent avec la lumière. C'est un joyau de l'art islamique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour6.jpg" class="w-full h-64 object-cover" alt="Jour 6">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♂️ Exploration</p>
+                                <p class="text-gray-700">La plupart des sites de Boukhara sont accessibles à pied, ce qui permet une exploration agréable.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☀️ Chaleur</p>
+                                <p class="text-gray-700">En période chaude, privilégiez les visites tôt le matin ou en fin d'après-midi.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-7" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 7</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Dômes Commerçants et Détente au Hammam</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez les dômes commerçants de Boukhara, où les artisans perpétuent des traditions séculaires, du tissage de tapis à la fabrication de bijoux. Laissez-vous tenter par les saveurs locales au marché, puis offrez-vous un moment de détente et de bien-être dans un hammam traditionnel. Cette journée combine découvertes culturelles, shopping authentique et relaxation, pour une expérience complète de la vie boukhariote.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🛍️ <strong>Flânerie dans les Dômes Commerçants (Taqi)</strong>: Ces anciens bazars couverts abritent aujourd'hui des boutiques d'artisanat, d'épices et de souvenirs. C'est l'endroit idéal pour trouver des tapis, des céramiques et des bijoux.</li><li>🧖‍♀️ <strong>Détente au Hammam Bozori Kord</strong>: Offrez-vous une expérience de hammam traditionnel, un moment de relaxation et de purification après plusieurs jours de marche. C'est une immersion culturelle unique.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour7.jpg" class="w-full h-64 object-cover" alt="Jour 7">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💰 Négociation</p>
+                                <p class="text-gray-700">La négociation est attendue dans les bazars. Faites-le avec le sourire et respect.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">☕ Pause</p>
+                                <p class="text-gray-700">Faites une pause thé dans une des maisons de thé traditionnelles près du Lyab-i Hauz.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-8" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 8</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Samarcande, Splendeur du Régistan</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Embarquez à bord du train à grande vitesse Afrosiyob pour rejoindre Samarcande, la légendaire ville de Tamerlan. Après votre installation, préparez-vous à être ébloui par la majesté de la Place du Régistan, le joyau architectural de l'Ouzbékistan. Admirez ses madrasahs illuminées par le soleil couchant, un spectacle inoubliable qui marque le début de votre exploration de cette ville mythique. Une journée de transition et d'émerveillement.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🚄 <strong>Voyage en train rapide Afrosiyob vers Samarcande</strong>: Profitez du confort et de la rapidité du train Afrosiyob pour un trajet d'environ 1h30. C'est le moyen le plus efficace de voyager entre les grandes villes ouzbèkes.</li><li>✨ <strong>Découverte de la Place du Régistan au coucher du soleil</strong>: Arrivez en fin d'après-midi pour voir les trois madrasahs (Ulugbek, Sher-Dor et Tilla-Kari) s'illuminer sous les rayons du soleil couchant. C'est un spectacle à couper le souffle.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour8.jpg" class="w-full h-64 object-cover" alt="Jour 8">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Photographie</p>
+                                <p class="text-gray-700">Le Régistan est particulièrement photogénique au lever et au coucher du soleil.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Les billets de train Afrosiyob se vendent rapidement, réservez-les bien à l'avance.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-9" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 9</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Samarcande, Joyaux de l'Architecture Timouride</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Poursuivez votre exploration de Samarcande en vous immergeant dans la grandeur de la Place du Régistan sous la lumière du jour, révélant tous les détails de ses mosaïques. Visitez ensuite l'imposante mosquée Bibi-Khanym, témoin de la puissance de Tamerlan, avant de vous perdre dans l'effervescence du bazar de Siab, où les saveurs et les couleurs de l'Asie Centrale vous enchanteront. Une journée dédiée à l'architecture et à la vie locale.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕌 <strong>Exploration détaillée de la Place du Régistan</strong>: Prenez le temps d'entrer dans chaque madrasah pour admirer les cours intérieures, les salles de prière et les expositions d'artisanat. Chaque bâtiment a sa propre histoire et ses particularités.</li><li>👑 <strong>Visite de la Mosquée Bibi-Khanym et du Bazar de Siab</strong>: Cette immense mosquée, construite par Tamerlan, est un chef-d'œuvre architectural. Juste à côté, le bazar de Siab est un marché animé où vous trouverez fruits secs, épices, pain et souvenirs.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour9.jpg" class="w-full h-64 object-cover" alt="Jour 9">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🍞 Gastronomie</p>
+                                <p class="text-gray-700">Goûtez le pain de Samarcande, le "non", réputé pour sa longue conservation et ses motifs uniques.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🗣️ Interaction</p>
+                                <p class="text-gray-700">Les vendeurs du bazar sont souvent très accueillants et aiment partager leurs produits.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-10" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 10</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Nécropole Sacrée et Astronomie Ancienne</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Découvrez la nécropole de Shah-i-Zinda, un ensemble de mausolées aux mosaïques éblouissantes, véritable chef-d'œuvre de l'art islamique. Plongez ensuite dans le monde de l'astronomie médiévale en visitant l'observatoire d'Ulugbek, témoin du génie scientifique de l'époque. Terminez par le musée d'Afrosiab pour un aperçu de l'ancienne Samarcande. Une journée entre spiritualité, science et histoire, révélant les multiples facettes de la ville.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🕊️ <strong>Exploration de la Nécropole de Shah-i-Zinda</strong>: Surnommée la "Rue des Mausolées Vivants", c'est un ensemble de tombes royales et nobles, ornées de céramiques bleues et turquoises. C'est un lieu de pèlerinage et de beauté architecturale.</li><li>🔭 <strong>Visite de l'Observatoire d'Ulugbek</strong>: Découvrez les vestiges de l'observatoire du prince-astronome Ulugbek, petit-fils de Tamerlan. Un musée sur place explique ses découvertes et son instrument géant, le sextant.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour10.jpg" class="w-full h-64 object-cover" alt="Jour 10">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🚶‍♀️ Accès</p>
+                                <p class="text-gray-700">La nécropole de Shah-i-Zinda est accessible par une longue volée de marches, prévoyez de bonnes chaussures.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📚 Histoire</p>
+                                <p class="text-gray-700">Le musée d'Afrosiab abrite des fresques uniques de l'ancienne Samarcande, datant du VIIe siècle.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-11" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ocre rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 11</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Artisanat et Départ pour Tachkent</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Profitez d'une matinée libre à Samarcande pour approfondir une découverte ou faire vos derniers achats. Vous pourriez visiter une fabrique de papier de soie traditionnelle ou participer à un atelier de cuisine pour apprendre les secrets du plov. En fin d'après-midi, embarquez pour Tachkent, la capitale moderne de l'Ouzbékistan. Une journée de transition qui vous mènera d'une ville historique à une métropole contemporaine.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>📜 <strong>Visite d'une fabrique de papier de soie de Samarcande (optionnel)</strong>: Découvrez le processus ancestral de fabrication du papier à partir de l'écorce de mûrier. C'est une tradition locale fascinante et un savoir-faire unique.</li><li>🚄 <strong>Transfert en train rapide Afrosiyob vers Tachkent</strong>: Un dernier trajet en Afrosiyob, d'environ 2 heures, vous mènera à Tachkent. Installez-vous dans votre hôtel et préparez-vous à découvrir une facette différente de l'Ouzbékistan.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour11.jpg" class="w-full h-64 object-cover" alt="Jour 11">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">👨‍🍳 Expérience</p>
+                                <p class="text-gray-700">Un cours de cuisine pour apprendre à préparer le plov, plat national, est une expérience mémorable.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🏙️ Contraste</p>
+                                <p class="text-gray-700">Tachkent offre un contraste saisissant avec les villes historiques de la Route de la Soie.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-12" class="section-etape relative z-10 mb-20 md:flex  md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-ciel rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-right md:pr-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 12</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Tachkent, Capitale Moderne et Historique</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Explorez Tachkent, une ville qui allie modernité et héritage soviétique. Commencez par la Place Amir Timur, le cœur de la ville, avant de vous immerger dans l'ambiance authentique du bazar de Chorsu, un marché coloré et animé. Terminez par une découverte des stations de métro, véritables œuvres d'art souterraines. Une journée pour appréhender la capitale ouzbèke, entre gratte-ciel et traditions ancestrales.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🌳 <strong>Découverte de la Place Amir Timur et de ses environs</strong>: Cette place centrale est entourée de bâtiments importants et de jardins. C'est un bon point de départ pour comprendre l'urbanisme de Tachkent.</li><li>🛍️ <strong>Immersion au Bazar de Chorsu</strong>: Ce marché couvert, avec son dôme bleu emblématique, est un festival de couleurs, d'odeurs et de saveurs. C'est l'endroit idéal pour observer la vie locale et acheter des produits frais.</li><li>🚇 <strong>Exploration des stations de métro de Tachkent</strong>: Chaque station est une œuvre d'art unique, décorée de marbre, de granit, de mosaïques et de lustres. C'est une attraction à part entière.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pl-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour12.jpg" class="w-full h-64 object-cover" alt="Jour 12">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">📸 Photographie</p>
+                                <p class="text-gray-700">La photographie est autorisée dans le métro de Tachkent depuis 2018, profitez-en!</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">💡 Conseil</p>
+                                <p class="text-gray-700">Le métro est le moyen le plus efficace et le plus économique pour se déplacer à Tachkent.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+                <div id="jour-13" class="section-etape relative z-10 mb-20 md:flex md:flex-row-reverse md:justify-between items-start group scroll-mt-32">
+                    <div class="absolute left-6 md:left-1/2 transform -translate-x-1/2 w-8 h-8 bg-template-roche rounded-full border-4 border-white shadow-lg flex items-center justify-center z-20"></div>
+                    
+                    <div class="md:w-[45%] pl-14 md:text-left md:pl-12">
+                        <span class="font-serif text-3xl block text-template-roche mb-2 font-bold">Jour 13</span>
+                        <h3 class="text-xl font-bold text-gray-800 mb-3">Départ de Tachkent</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed italic mb-4">Après un voyage inoubliable à travers les merveilles de l'Ouzbékistan, il est temps de quitter cette terre de légendes. Profitez d'un dernier petit-déjeuner ouzbek avant de vous rendre à l'aéroport international de Tachkent pour votre vol retour. Emportez avec vous les souvenirs des cités de la Route de la Soie, des rencontres chaleureuses et des paysages grandioses qui ont marqué votre séjour. Un voyage riche en émotions s'achève.</p>
+                        <ul class="text-sm text-gray-700 space-y-2 inline-block text-left font-medium">
+                            <li>🍳 <strong>Dernier petit-déjeuner ouzbek</strong>: Savourez un dernier repas typique, souvent composé de pain frais, de fromage, de fruits et de thé vert, avant de vous préparer pour le départ.</li><li>🛫 <strong>Transfert à l'aéroport international de Tachkent et vol retour</strong>: Un taxi vous conduira à l'aéroport pour votre vol international. Prévoyez suffisamment de temps pour les formalités d'enregistrement et de sécurité.</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="pl-14 md:w-[45%] mt-6 md:mt-0 md:pr-12">
+                        <div class="rounded-xl overflow-hidden shadow-lg mb-4">
+                            <img src="https://raw.githubusercontent.com/mytripplanner-dotfr/Khiva-714bm0d293k7769/main/jour13.jpg" class="w-full h-64 object-cover" alt="Jour 13">
+                        </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">✈️ Aéroport</p>
+                                <p class="text-gray-700">L'aéroport de Tachkent (TAS) est le principal hub international du pays.</p>
+                            </div>
+                        
+                            <div class="tip-card p-4 rounded-r-lg text-sm mb-2">
+                                <p class="font-bold text-template-ocre mb-1">🎁 Derniers achats</p>
+                                <p class="text-gray-700">Si le temps le permet, vous pouvez faire quelques derniers achats de souvenirs à l'aéroport.</p>
+                            </div>
+                        
+                    </div>
+                </div>
+                
+        </div>
+    </section>
+
+    <section id="pratique" class="bg-white border-t border-gray-200 pt-12 pb-12 scroll-mt-24">
+        <div class="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>💴</span> Budget
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget vol: </strong>850€/pers (Vol A/R France - Ouzbékistan, classe économique)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget transports: </strong>110€/pers (Trains rapides, taxis inter-villes et locaux)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget repas: </strong>390€/pers (13 jours à 30€/jour, restaurants de gamme moyenne)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget logement: </strong>720€/pers (12 nuits en hôtels 3 étoiles, base chambre individuelle)</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2"><strong>Budget activités: </strong>180€/pers (Droits d'entrée aux sites, musées, guides occasionnels)</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>☀️</span> Périodes Idéales
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">Les périodes idéales pour ce séjour sont les mois d'Avril, Mai, Septembre et Octobre.</p>
+                
+            </div>
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>📃</span> Infos pratiques
+                </h4>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🤝 La population ouzbèke est réputée pour son hospitalité légendaire. Attendez-vous à des invitations au thé et à des sourires chaleureux.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">✅ L'Ouzbékistan est un pays sûr, mais il est toujours conseillé de prendre les précautions habituelles contre les petits larcins.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">💰 La monnaie est le Soum Ouzbek (UZS). Les cartes de crédit sont acceptées dans les grands hôtels et restaurants, mais le liquide est préférable pour les marchés et petits commerces.</p>
+                
+                    <p class="text-sm text-gray-600 leading-relaxed mb-2">🍞 Le pain (non) est sacré en Ouzbékistan. Ne le jetez jamais et ne le posez pas à l'envers. C'est un signe de respect.</p>
+                
+            </div>            
+            <div>
+                <h4 class="font-serif text-xl mb-4 text-template-roche flex items-center gap-2 font-bold">
+                    <span>🔗</span> Liens Utiles
+                </h4>
+                <ul class="text-sm space-y-3">
+                  <li><a href="https://mytripplanner-dotfr.github.io/Khiva-714bm0d293k7769/map.html" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🗺️ Carte Interactive</strong></a></li>
+                    
+                        <li><a href="https://uzbekistan.travel/fr/" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>📘 Uzbekistan.travel</strong></a></li>
+                    
+                        <li><a href="https://e-ticket.railway.uz/en" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🚆 Uzbekistan Railways</strong></a></li>
+                    
+                        <li><a href="https://www.accuweather.com/fr/uz/uzbekistan-weather" target="_blank" class="hover:text-template-ocre transition flex items-center gap-2"><strong>🌤️ Météo Ouzbékistan</strong></a></li>
+                    
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-50 border-t border-slate-200 py-6">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <p class="font-serif text-lg text-template-roche mb-2 font-bold">
+                MyTrip<span class="text-template-ocre">Planner</span>
+            </p>
+
+                <div class="flex justify-center gap-4 text-[10px] md:text-xs text-slate-500 mb-4 font-semibold">
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Mentions Légales</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">CGU</a>
+                    <a href="#" class="hover:text-brand-primary transition hover:underline">Confidentialité</a>
+                </div>
+
+            <p class="text-[10px] text-gray-400 mb-2">
+                &copy; 2025 MyTripPlanner. Tous droits réservés.
+            </p>
+
+            <div class="flex justify-center">
+                <p class="text-[10px] text-gray-400 uppercase tracking-widest px-2 py-0.5 border border-gray-200 rounded-full inline-block">
+                    🤖 Contenu généré par IA
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Gestion Scroll & Menu
+        const navDesktop = document.getElementById('nav-desktop');
+        const navMobile = document.getElementById('nav-mobile');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                navDesktop.classList.remove('-translate-y-full');
+                navMobile.classList.remove('-translate-y-full');
+            } else {
+                navDesktop.classList.add('-translate-y-full');
+                navMobile.classList.add('-translate-y-full');
+            }
+        });
+        
+        // Active Link Highlighter
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const activeId = entry.target.id;
+                    document.querySelectorAll('.mobile-link').forEach(link => {
+                        const linkHref = link.getAttribute('href').substring(1);
+                        if (linkHref === activeId) {
+                            link.classList.remove('bg-gray-100', 'text-gray-700');
+                            link.classList.add('bg-template-ocre', 'text-white', 'shadow-md');
+                            link.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+                        } else {
+                            link.classList.add('bg-gray-100', 'text-gray-700');
+                            link.classList.remove('bg-template-ocre', 'text-white', 'shadow-md');
+                        }
+                    });
+                }
+            });
+        }, { rootMargin: '-40% 0px -60% 0px' });
+
+        document.querySelectorAll('div[id^="jour-"], section#pratique').forEach(s => observer.observe(s));
+    </script>
+</body>
+</html>
